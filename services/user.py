@@ -17,11 +17,11 @@ def create_user(username: str,
     return user
 
 
-def get_user(user_id: id) -> User:
+def get_user(user_id: int) -> User:
     return User.objects.get(id=user_id)
 
 
-def update_user(user_id: id, username: str = None, password: str = None,
+def update_user(user_id: int, username: str = None, password: str = None,
                 email: str = None, first_name: str = None,
                 last_name: str = None) -> User:
     user = User.objects.get(id=user_id)

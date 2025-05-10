@@ -1,4 +1,5 @@
 import datetime
+from typing import Optional
 
 from django.db import transaction
 from django.db.models import QuerySet
@@ -7,7 +8,8 @@ from db.models import Ticket, Order
 from django.contrib.auth import get_user_model
 
 
-def create_order(tickets: list, username: str, date: datetime = None) -> Order:
+def create_order(tickets: list, username: str,
+                 date: Optional[datetime.datetime] = None) -> Order:
     if not date:
         date = datetime.datetime.now()
 
