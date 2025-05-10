@@ -1,11 +1,13 @@
+import datetime
+
 from django.db.models import QuerySet
-from django.forms import DateTimeField
+
 
 from db.models import MovieSession, Ticket
 
 
 def create_movie_session(
-        movie_show_time: DateTimeField, movie_id: int, cinema_hall_id: int
+        movie_show_time: datetime, movie_id: int, cinema_hall_id: int
 ) -> MovieSession:
     return MovieSession.objects.create(
         show_time=movie_show_time,
@@ -32,7 +34,7 @@ def get_taken_seats(movie_session_id: int) -> list:
 
 def update_movie_session(
         session_id: int,
-        show_time: DateTimeField = None,
+        show_time: datetime = None,
         movie_id: int = None,
         cinema_hall_id: int = None,
 ) -> None:
